@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.wrapper{
+				width: 80%;
+				height: 100px;
+				margin: 10px auto;
+				background: #DDDDDD;
+				overflow: hidden;
+			}
+			li{
+				list-style: none;
+			}
+			.box{
+				height: 100px;
+				white-space: nowrap;
+				position: relative;
+				text-align: center;
+				overflow-x: auto;
+				/*在ios下滑动顺畅*/
+				-webkit-overflow-scrolling: touch;
+				-overflow-scrolling: touch;
+			}
+			/*隐藏ios下的滚动条*/
+			.box::-webkit-scrollbar {
+			  	display: none;
+			}
+			.box .menu{
+				display: inline-block;
+				width: 76px;
+				line-height: 100px;
+				position: relative;
+			}
+			.box .underline{
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 76px;
+				height: 3px;
+				background: red;
+				display: inline-block;
+				-webkit-transition: all .25s cubic-bezier(.4,0,.2,1);
+    			transition: all .25s cubic-bezier(.4,0,.2,1);
+			}
+			.current{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<ul class="box">
+				<li class="menu current">菜单一</li>
+				<li class="menu">菜单二</li>
+				<li class="menu">菜单三</li>
+				<li class="menu">菜单四</li>
+				<li class="menu">菜单五</li>
+				<li class="underline"></li>
+			</ul>
+		</div>
+		<script src="jquery-1.11.3.min.js"></script>
+		<script>
+			$('.menu').click(function(){
+				$('.menu').removeClass('current');
+				$(this).addClass('current');
+//				鼠标跟随效果
+				var l=$('.menu').width(); 
+	            var m=$(this).index();
+	            $('.underline').css({'width':(l),'left':(l+3)*m});
+			})
+		</script>
+	</body>
+</html>

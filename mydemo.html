@@ -1,0 +1,110 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta charset="utf-8">
+	<title>页面标题</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			-webkit-tap-highlight-color:rgba(0,0,0,0)
+		}
+		li{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		a:hover{text-decoration:none}
+		.htit{line-height:20px;padding:0 20px;color:#ff8e2e;font-size: 20px;margin:20px 0}
+		.clearfix:after{content:".";display:block;height:0;clear: both;visibility:hidden;}
+		.clearfix{*zoom:1;}
+		.wrapper02 {position:relative;height: 40px;width: 100%;overflow: hidden;margin:0 auto;background:#ddd}
+		.wrapper02 .scroller {position:absolute}
+		.wrapper02 .scroller li {height: 40px;color:#333;float: left;line-height: 40px;text-align: center}
+		.wrapper02 .scroller li a{font-size: 16px;color:#333;display:block;margin:0 10px}
+		.wrapper02 .scroller li.cur{background:#1cbb9b}
+		.wrapper02 .scroller li.cur a{color:#fff;}
+
+		.wrapper03 {position:relative;height: 40px;width: 100%;overflow: hidden;margin:0 auto;border-bottom:1px solid #ccc}
+		.wrapper03 .scroller {position:absolute}
+		.wrapper03 .scroller li {height: 40px;color:#333;float: left;line-height: 40px;text-align: center;}
+		.wrapper03 .scroller li a{font-size: 16px;color:#333;display:block;margin:0 10px;padding:0 10px;}
+		.wrapper03 .scroller li.cur a{color:#1cbb9b;height:36px;border-bottom: 2px solid #1cbb9b;}
+	</style>
+</head>
+<body>
+
+<h2 class="htit">demo示例三</h2>
+<div class="wrapper wrapper03" id="wrapper03">
+	<div class="scroller">
+		<ul class="clearfix">
+			<li><a href="javascript:void(0)">全部科目</a></li>
+			<li><a href="javascript:void(0)">会计从业</a></li>
+			<li><a href="javascript:void(0)">会计职称</a></li>
+			<li><a href="javascript:void(0)">注会</a></li>
+			<li><a href="javascript:void(0)">税务师</a></li>
+			<li><a href="javascript:void(0)">国际证书</a></li>
+			<li><a href="javascript:void(0)">更多</a></li>
+			<li><a href="javascript:void(0)">更多注会</a></li>
+			<li><a href="javascript:void(0)">国际证书2</a></li>
+			<li><a href="javascript:void(0)">更多4</a></li>
+			<li><a href="javascript:void(0)">更多5</a></li>
+		</ul>
+		<div class="underline"></div>
+	</div>
+</div>
+
+<h2 class="htit">demo示例六</h2>
+<div class="wrapper02" id="demo06">
+	<div class="scroller">
+		<ul class="clearfix">
+			<li><a href="javascript:void(0)">北京</a></li>
+			<li><a href="javascript:void(0)">上海</a></li>
+			<li><a href="javascript:void(0)">广州</a></li>
+			<li><a href="javascript:void(0)">深证</a></li>
+			<li><a href="javascript:void(0)">杭州</a></li>
+			<li><a href="javascript:void(0)">武汉</a></li>
+			<li><a href="javascript:void(0)">天津</a></li>
+			<li><a href="javascript:void(0)">郑州西安</a></li>
+			<li><a href="javascript:void(0)">海口西安</a></li>
+			<li><a href="javascript:void(0)">郑州</a></li>
+			<li><a href="javascript:void(0)">长春</a></li>
+			<li><a href="javascript:void(0)">长沙</a></li>
+			<li><a href="javascript:void(0)">南京</a></li>
+			<li><a href="javascript:void(0)">西安</a></li>
+		</ul>
+	</div>
+</div>
+
+<div style="padding:1rem .4rem;line-height:.6rem;font-size:.34rem">
+		参数说明：<br />
+		className:'cur', //当前选中点击元素的class类名<br />
+		clickScrollTime:300, //点击后滑动时间<br />
+		duibiScreenWidth:0.4, //单位以rem为准，默认为0.4rem<br />
+		fingerClick:0, //目标第0或1个选项触发,必须每一项长度一致，方可用此项<br />
+		endClickScroll:function(thisObj){}//回调函数<br />
+</div>
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<!--<script type="text/javascript" src="js/flexible.js"></script>-->
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/navbarscroll.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+		//demo示例一到四 通过lass调取，一句可以搞定，用于页面中可能有多个导航的情况
+		$('#wrapper03').navbarscroll();
+
+		//demo示例六 通过id调取
+		$('#demo06').navbarscroll({
+			defaultSelect:0,
+			scrollerWidth:6,
+			fingerClick:1,
+		});
+	});
+</script>
+
+</body>
+</html>
